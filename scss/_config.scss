@@ -1,0 +1,22 @@
+// Variables
+$light-color: #f4f4f4;
+$font-stack: Arial, Helvetica, sans-serif;
+$primary-color: #0e6cff;
+// $primary-color: #e0ffff;
+$secondary-color: #CB4876;
+
+// Set text color based on background
+@function set-text-color($color) {
+    @if(lightness($color) > 70) {
+        @return #333;
+    } @else {
+        @return #fff;
+    }
+}
+
+// Set background & text color
+// Mixin likes a function but doesn't return anything.
+@mixin set-background-color($color) {
+    background-color: $color;
+    color: set-text-color($color);
+}
